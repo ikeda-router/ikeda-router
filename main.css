@@ -1,0 +1,57 @@
+html, body {
+ height: 100%;
+ width: 100%;
+}
+
+/*
+* {
+ border: solid 1px;
+}
+*/
+
+.spot {
+ height: 100px;
+}
+
+.spot .spot-item {
+ height: 100%;
+ overflow-y: hidden;
+}
+
+.spot .spot-item header {
+ background-color: #ba55d3;
+ color: white;
+}
+
+.my-text-middle {
+ display: inline-block;
+ vertical-align: middle;
+}
+
+.time {
+ font-size: 14px;
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.time-end{
+ position: absolute;
+
+ top: 0px;
+ left: 0px;
+}
+
+.time-start{
+ position: absolute;
+
+ bottom: 0px;
+ left: 0px;
+}
+
+.time-spot {
+ font-size: 20px;
+ position: absolute;
+ left: 0;
+}

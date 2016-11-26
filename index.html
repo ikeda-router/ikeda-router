@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title></title>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+ <!-- Latest compiled and minified CSS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+ <!-- Latest compiled and minified JavaScript -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+ <script src="https://unpkg.com/vue/dist/vue.js"></script>
+ <script src="https://unpkg.com/vue-router"></script>
+ <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+ <script id="spot-template" type="text/x-template">
+  <div class="row spot">
+    <div class="col-xs-10 spot-item">
+    <section>
+     <header class="text-center">{{spot.spot.name}}</header>
+     <p>
+     {{spot.spot.highlight}}
+     </p>
+    </section>
+    </div>
+    <div class="col-xs-2 time">
+     <span class="time-end"> {{spot.end}} </span>
+     <span class="time-spot" v-if="spot.spot_time > 0"> {{ spot.spot_time }} 分</span>
+     <span class="time-start"> {{spot.start}}</span>
+    </div>
+  </div>
+ </script>
+
+ <script id="transport-template" type="text/x-template">
+  <div class="row spot">
+    <div class="col-xs-10 text-center">
+    乗り物 is {{transport.transport}}
+    </div>
+  </div>
+ </script>
+
+ <script id="spot-list-template" type="text/x-template">
+ <div class="container">
+  <div v-for="item of route">
+   <spot v-bind:spot="item" v-if="item.type === 'stop-place'"></spot>
+   <transport v-bind:transport="item" v-else-if="item.type === 'transport'"></trasnport>
+  </div>
+ </div>
+ </script>
+
+ <script id="route-list-template" type="text/x-template">
+  <div class="container">
+  <div class="row route-list" v-for="(route, index) in routes">
+   <div class="col-xs-12">
+    <router-link :to="{ name: 'route', params: { id: index} }" class="btn btn-default btn-block" href="#" role="button">{{ route.title }}</router-link>
+   </div>
+  </div>
+  </div>
+ </script>
+
+ <div id="app">
+  <router-view></router-view>
+ </div>
+
+ <script src="main.js"></script>
+</body>
+</html>
