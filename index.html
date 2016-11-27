@@ -24,7 +24,7 @@
     <section>
      <header class="text-center">{{spot.name}}</header>
      <p>
-     <a v-if="spot.link" href="{{spot.link}}">周辺地図を開く<br /></a>
+     <a v-if="spot.link" v-bind:href="spot.link">周辺地図を開く<br /></a>
      {{spot.highlight}}
      </p>
     </section>
