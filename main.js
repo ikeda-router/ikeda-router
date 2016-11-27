@@ -96,12 +96,15 @@ class BusStop extends Spot{
  // 1文字でも間違えるとマッチしないので随時確認すること
  // route_uri: http://odp.jig.jp/rdf/jp/fukui/imadate/ikeda/740.ttlの中の路線
  // ラベルが同一であることを信頼している
- constructor(label, route_uri){
+ constructor(label, route_uri, end, start, link){
   super(label);
   this.label = label;
   this.route_uri = route_uri;
   this.highlight="";
   this.time_table = [];
+  this.start = start;
+  this.end = end;
+  this.link = link;
  }
 }
 
@@ -121,19 +124,19 @@ var routes = [
  {
   title: "日帰りオススメ",
   route: [
-   new BusStop("ＪＲ武生駅前", bus_route["福鉄バス池田線"]), // JR武生駅前
+   new BusStop("ＪＲ武生駅前", bus_route["福鉄バス池田線"], null,"07:35"), // JR武生駅前
    new Transport("福鉄バス池田線"),
-   new BusStop("稲荷", bus_route["福鉄バス池田線"]),
+   new BusStop("稲荷", bus_route["福鉄バス池田線"], "08:35", "08:35", "./center.html"),
    new Transport("歩き"),
-   new BusStop("役場", ["なかま号2号車","なかま号1号車"].map(k => bus_route[k])),
+   new BusStop("役場", ["なかま号2号車","なかま号1号車"].map(k => bus_route[k]), "09:00","09:00"),
    new Transport("なかま号"),
-   new BusStop("志津原", ["なかま号2号車","なかま号1号車"].map(k => bus_route[k])),
+   new BusStop("志津原", ["なかま号2号車","なかま号1号車"].map(k => bus_route[k]),"10:00","10:00", "./shiduhara.html"),
    new Transport("なかま号"),
-   new BusStop("役場", ["なかま号2号車","なかま号1号車"].map(k => bus_route[k])),
+   new BusStop("役場", ["なかま号2号車","なかま号1号車"].map(k => bus_route[k]),"11:00","11:00"),
    new Transport("歩き"),
-   new BusStop("稲荷", bus_route["福鉄バス池田線"]),
+   new BusStop("稲荷", bus_route["福鉄バス池田線"],"12:00","12:00"),
    new Transport("福鉄バス池田線"),
-   new BusStop("ＪＲ武生駅前", bus_route["福鉄バス池田線"]), // JR武生駅前
+   new BusStop("ＪＲ武生駅前", bus_route["福鉄バス池田線"],"13:00"), // JR武生駅前
   ]
  }
 ];
@@ -183,11 +186,13 @@ select distinct ?name ?route_name ?time where {
 }
  `;
  console.log(query);
- return Promise.reject(new Error("void"));;
+ return {};
+ /*
  return Promise.resolve($.ajax({
   url: endpoint,
   data: { query }
  }));
+ */
 }
 
 function generate_time_table(data){
@@ -221,7 +226,6 @@ function generate_time_table(data){
   methods: {
    fetchData: function(){
     fetch_by_route(this.route).then(generate_time_table).then(function(data){
-     console.log(data);
     });
    }
   }
