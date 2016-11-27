@@ -27,6 +27,10 @@ html, body {
  background: aqua;
  color: black;
 }
+.spot .spot-item section a{
+ color: red;
+ text-decoration: underline;
+}
 
 .my-text-middle {
  display: inline-block;
