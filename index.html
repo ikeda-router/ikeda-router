@@ -24,7 +24,7 @@
     <section>
      <header class="text-center">{{spot.name}}</header>
      <p>
-     <a href="{{spot.link}}" v-if="spot.link">周辺地図を開く<br /></a>
+     <a v-if="spot.link" href="{{spot.link}}">周辺地図を開く<br /></a>
      {{spot.highlight}}
      </p>
     </section>
@@ -56,6 +56,7 @@
 
  <script id="route-list-template" type="text/x-template">
   <div class="container">
+  <h1>バスでイケるんダー</h1>
   <div class="row route-list" v-for="(route, index) in routes">
    <div class="col-xs-12">
     <router-link :to="{ name: 'route', params: { id: index} }" class="btn btn-default btn-block" href="#" role="button">{{ route.title }}</router-link>
