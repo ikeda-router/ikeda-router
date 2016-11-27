@@ -1,0 +1,91 @@
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<title>志津原周辺</title>
+<script src="http://js.api.olp.yahooapis.jp/OpenLocalPlatform/V1/jsapi?appid=OY1oDxsr" type="text/javascript"  charset="UTF-8" ></script>
+<style>
+.sub-menu {
+    margin:4px;
+    padding:4px;
+    border:1px solid;
+}
+.sub-menu h3 {
+    font-size:14px;
+    margin:2px;
+    padding:2px;
+}
+</style>
+</head>
+<body>
+<div id="map" style="width:600px; height:480px;"></div>
+<div id ="output" style="width:600px;"></div>
+<div>
+<!-- Begin Yahoo! JAPAN Web Services Attribution Snippet -->
+<a href="http://developer.yahoo.co.jp/about">
+<img src="http://i.yimg.jp/images/yjdn/yjdn_attbtn2_105_17.gif" width="105" height="17" title="Webサービス by Yahoo! JAPAN" alt="Webサービス by Yahoo! JAPAN" border="0" style="margin:15px 15px 15px 15px"></a>
+<!-- End Yahoo! JAPAN Web Services Attribution Snippet -->
+
+
+<script type="text/javascript" charset="utf-8" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://js.api.olp.yahooapis.jp/OpenLocalPlatform/V1/jsapi?appid=dj0zaiZpPTFxbENubHo4WExqTiZzPWNvbnN1bWVyc2VjcmV0Jng9OTU-"></script>
+<script type="text/javascript">
+window.onload = function(){
+	var ymap = new Y.Map("map"),
+
+	onclick = function(){
+                $('#output').html('');
+                $('#output').html(this.__label__);
+        };
+
+	ymap.addControl( new Y.SliderZoomControl() ); 
+	ymap.addControl( new Y.LayerSetControl() );
+var iconeat = 'http://i.yimg.jp/images/map/yy/images/icon/yy_aicon_06_32pix.gif';
+//遊ぶ
+var iconplay = 'http://i.yimg.jp/images/map/yy/images/icon/yy_aicon_36_32pix.gif';
+//スタート
+var iconstart = 'http://i.yimg.jp/images/map/yy/images/icon/yy_aicon_55_32.gif';
+    ymap.bind('load', function(){
+        var contents = [
+{lat:35.8673259,lng:136.3581674,label:'ファームハウス・コムニタ</br>地元の素材を生かした食事と、スタッフとの交流が楽しめる、田舎ホテル。食事のみ、体験のみの利用もできる。', icon:iconeat},
+{lat:35.8673259,lng:136.3581674,label:'ピザ作り体験</br>旬の野菜を使ったピザ作り体験', icon:iconeat},
+{lat:35.8673259,lng:136.3581674,label:'昔遊び・田舎体験</br>宿泊者限定で、田舎遊びや畑作業などを体験できる。', icon:iconplay},
+{lat:35.8601879,lng:136.3629254,label:'ふるさとふれあい道場</br>そば打ち体験、餅つき体験ができるほか、そばやうどん、おもちの飲食のみの利用もできる。', icon:iconeat},
+{lat:35.8601879,lng:136.3629254,label:'そば打ち体験</br>職人から習うそば打ち体験', icon:iconeat},
+{lat:35.8601879,lng:136.3629254,label:'もちつき体験</br>きねとうすを使って昔ながらの餅つきができる。豆餅や草餅なども選べる。', icon:iconeat},
+{lat:35.8661678,lng:136.3595312,label:'酔虎　夢</br>猪や鹿や山菜などを囲炉裏にあたりながら食べられる。土日オープン。平日は予約により対応。', icon:iconeat},
+{lat:35.8617572,lng:136.3606367,label:'能面美術館</br>古面１３点を含む能面７０点が展示されている。能舞台も併設されている。', icon:iconplay},
+{lat:35.8608529,lng:136.3636193,label:'かずら橋</br>全長４４メートル、高さ１２メートルの天然の蔓（シラクチカズラ）でできた吊り橋。本州ではここだけ。', icon:iconplay},
+{lat:35.8645682,lng:136.3619741,label:'自然遊歩道</br>ツリーピクニックアドベンチャーいけだ及び足羽川上流にかけて自然遊歩道が整備されている。軽いウォーキングからトレッキングまでコースを選んで歩くことができる。', icon:iconplay},
+{lat:35.8617572,lng:136.3606367,label:'ぬくもり茶屋</br>本物のキビを使ったきびだんごや、手作りのかきもち、よもぎもちなどを販売している。冬期以外の日曜のみ開店している。', icon:iconeat},
+{lat:35.8645346,lng:136.3599367,label:'カフェ・モクモク</br>ソフトクリームやかき氷、コーヒーなどの他、モンベル商品の販売。週末・祝日限定でパスタランチを販売。', icon:iconeat},
+{lat:35.862873677172246,lng:136.36657859491484,label:'ツリーピクニックアドベンチャーいけだ</br>木に触れ、森を飛び、川と遊ぶ、自然と身近に触れ合うテーマパーク。', icon:iconplay},
+{lat:35.8624071,lng:136.3650667,label:'メガジップライン</br>ツリーピクニックアドベンチャーいけだを代表するアクティビティ。往復約１キロ、地上６０ｍを鳥の目線で体験できる。最高時速約６０キロ。', icon:iconplay},
+{lat:35.8624071,lng:136.3650667,label:'アドベンチャーパーク</br>ツリーピクニックアドベンチャーいけだ内、高さ３〜１２メートルに設置された樹上ジャングルジム。キッズコース１コースに大人向けのコース３コース。', icon:iconplay},
+{lat:35.8624071,lng:136.3650667,label:'アドベンチャーボート</br>ツリーピクニックアドベンチャーいけだの人気プログラム。ゴムボートで、川を約２キロ下るミニラフティング。身長１００㎝から利用可能', icon:iconplay},
+{lat:35.8624071,lng:136.3650667,label:'コテージ</br>ツリーピクニックアドベンチャーいけだ内のコテージ。宿泊者限定の早朝プログラムもある。', icon:iconplay},
+{lat:35.8624071,lng:136.3650667,label:'バーベキューハウス</br>ツリーピクニックアドベンチャーいけだ内にあるバーベキュー施設。', icon:iconplay},
+{lat:35.8624071,lng:136.3650667,label:'カフェ・ピクニック</br>ツリーピクニックアドベンチャーいけだセンターハウスにあるカフェ。おにぎりやお弁当、スイーツ、飲み物の販売。また、センターハウス内でモンベル商品やツリーピクニックアドベンチャーオリジナル商品も販売', icon:iconeat},
+{lat:35.8639819,lng:136.3611811,label:'冠荘</br>温泉旅館。立ち寄り湯としても利用できる。食事のみの利用も予約でできる。お湯は美人の湯といわれ、肌がつるつるになる。', icon:iconplay},
+{lat:35.8639819,lng:136.3611811,label:'かずら</br>冠荘内のお食事どころ。手打ちそばや宅種定食、麺類などもある。', icon:iconeat},
+{lat:35.863807, lng:136.364796, label:'志津原', icon:iconstart}
+],
+            i = 0, l = contents.length, marker = null;
+        for(; i<l; i++){
+            marker = new Y.Marker(new Y.LatLng(contents[i].lat, contents[i].lng), {icon: new Y.Icon(contents[i].icon)});
+            marker.__label__ = contents[i].label;
+        //    marker.bind('mouseover', onmouseover);
+        //    marker.bind('mouseout', onmouseout);
+            marker.bind('click', onclick);
+            ymap.addFeature(marker);
+        }
+    });
+
+    ymap.drawMap(new Y.LatLng(35.86227439999998,136.36709410000003), 16,"map");
+}
+//-->
+</script>
+</body>
+</html>
+<!-- text below generated by geocities.jp --></object></layer></div></span></style></noscript></table></script></applet><link href="http://bc.geocities.yahoo.co.jp/js/no.css" rel="stylesheet" type="text/css"><script language="javascript">var jps=382116061;var jpt=1480177268</script><script language="javascript" src="http://bc.geocities.yahoo.co.jp/js/no.js"></script><script language="javascript" src="http://bc.geocities.yahoo.co.jp/js/geov2.js"></script><script language="javascript">geovisit();
+</script>
