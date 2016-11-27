@@ -186,7 +186,7 @@ select distinct ?name ?route_name ?time where {
 }
  `;
  console.log(query);
- return {};
+ return Promise.resolve({});
  /*
  return Promise.resolve($.ajax({
   url: endpoint,
