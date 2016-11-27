@@ -124,19 +124,19 @@ var routes = [
  {
   title: "日帰りオススメ",
   route: [
-   new BusStop("ＪＲ武生駅前", bus_route["福鉄バス池田線"], null,"07:35"), // JR武生駅前
+   new BusStop("ＪＲ武生駅前", bus_route["福鉄バス池田線"], null,"07:41"), // JR武生駅前
    new Transport("福鉄バス池田線"),
-   new BusStop("稲荷", bus_route["福鉄バス池田線"], "08:35", "08:35", "./center.html"),
+   new BusStop("稲荷", bus_route["福鉄バス池田線"], "08:35", "09:20", "./center.html"),
    new Transport("歩き"),
-   new BusStop("役場", ["なかま号2号車","なかま号1号車"].map(k => bus_route[k]), "09:00","09:00"),
+   new BusStop("役場", ["なかま号2号車","なかま号1号車"].map(k => bus_route[k]), "09:20","09:20"),
    new Transport("なかま号"),
-   new BusStop("志津原", ["なかま号2号車","なかま号1号車"].map(k => bus_route[k]),"10:00","10:00", "./shiduhara.html"),
+   new BusStop("志津原", ["なかま号2号車","なかま号1号車"].map(k => bus_route[k]),"10:02","10:02", "./shiduhara.html"),
    new Transport("なかま号"),
-   new BusStop("役場", ["なかま号2号車","なかま号1号車"].map(k => bus_route[k]),"11:00","11:00"),
+   new BusStop("役場", ["なかま号2号車","なかま号1号車"].map(k => bus_route[k]),"10:08","10:08"),
    new Transport("歩き"),
-   new BusStop("稲荷", bus_route["福鉄バス池田線"],"12:00","12:00"),
+   new BusStop("稲荷", bus_route["福鉄バス池田線"],"14:35","14:35","./center.html"),
    new Transport("福鉄バス池田線"),
-   new BusStop("ＪＲ武生駅前", bus_route["福鉄バス池田線"],"13:00"), // JR武生駅前
+   new BusStop("ＪＲ武生駅前", bus_route["福鉄バス池田線"],"15:35"), // JR武生駅前
   ]
  }
 ];
