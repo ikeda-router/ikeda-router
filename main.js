@@ -196,7 +196,8 @@ select distinct ?name ?route_name ?time where {
 }
 
 function generate_time_table(data){
- return data.results.bindings;
+ return null;
+ // return data.results.bindings;
 }
 
 (function(){
