@@ -5,7 +5,7 @@
  <title></title>
 
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+ <script src="./node_modules/jquery/dist/jquery.min.js"></script>
  <!-- Latest compiled and minified CSS -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -22,9 +22,10 @@
   <div class="row spot">
     <div class="col-xs-10 spot-item">
     <section>
-     <header class="text-center">{{spot.spot.name}}</header>
+     <header class="text-center">{{spot.name}}</header>
      <p>
-     {{spot.spot.highlight}}
+     <a v-if="spot.link" v-bind:href="spot.link">周辺地図を開く<br /></a>
+     {{spot.highlight}}
      </p>
     </section>
     </div>
@@ -37,7 +38,7 @@
  </script>
 
  <script id="transport-template" type="text/x-template">
-  <div class="row spot">
+  <div class="row">
     <div class="col-xs-10 text-center">
     乗り物 is {{transport.transport}}
     </div>
@@ -47,7 +48,7 @@
  <script id="spot-list-template" type="text/x-template">
  <div class="container">
   <div v-for="item of route">
-   <spot v-bind:spot="item" v-if="item.type === 'stop-place'"></spot>
+   <spot v-bind:spot="item" v-if="item.type === 'spot'"></spot>
    <transport v-bind:transport="item" v-else-if="item.type === 'transport'"></trasnport>
   </div>
  </div>
@@ -55,6 +56,7 @@
 
  <script id="route-list-template" type="text/x-template">
   <div class="container">
+  <h1>バスでイケるんダー</h1>
   <div class="row route-list" v-for="(route, index) in routes">
    <div class="col-xs-12">
     <router-link :to="{ name: 'route', params: { id: index} }" class="btn btn-default btn-block" href="#" role="button">{{ route.title }}</router-link>

@@ -22,6 +22,15 @@ html, body {
  background-color: #ba55d3;
  color: white;
 }
+.spot .spot-item section {
+ height: 100%;
+ background: aqua;
+ color: black;
+}
+.spot .spot-item section a{
+ color: red;
+ text-decoration: underline;
+}
 
 .my-text-middle {
  display: inline-block;
